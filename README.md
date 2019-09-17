@@ -167,4 +167,9 @@ db.cursos.createIndex({"nombre": "text"})
 ```
 db.cursos.find({$text: {$search:"aws"}}, {nombre: 1})
 db.cursos.find({$text: {$search:"aws"}})
+db.cursos.find({$text: {$search:"aws"}}).pretty()
 ```
+
+## Apuntes teoricos
+1. One to one: Documentos embebidos
+2. One to many: Documentos embebidos cuando la información no va a cambiar muy frecuentemente y referencias cuando si.
