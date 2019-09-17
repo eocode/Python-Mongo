@@ -46,6 +46,10 @@ flask run
 3. Agregar la variable de entorno
 4. Conectar con la variable de conexión desde https://cloud.mongodb.com
 
+### Documentación
+1. [PyMongo](https://api.mongodb.com/python/current/)
+2. [Operadores mongo](https://docs.mongodb.com/manual/reference/operator/)
+
 ### Mostrar bases de datos
 ```
 show dbs
@@ -74,3 +78,43 @@ db.coleccion.drop()
 ```
 
 ## CRUD: Insertar, Mostrar, Actualizar y Eliminar
+### Inserts (Acepta los datos sin crear una estructura definida y se amolda con el tiempo)
+Al hacer cada inserción, mongodb automáticamente generara un ID unico, similar al “auto_increment primary key”, pero este ID es del tipo ObjectId de mongodb y es alfanumérico, muy similar a sha1 o md5. Tambien podemos hacer inserciones mas complejas, todo lo que sea soportado por JSON y por BSON ( el formato de MongoDB, con algunos tipos agregados sobre el original JSON)
+```
+db.micoleccion.insert({"nombre":"Agustin","apellido":"Ramos","domicilio":"Tabasco"})
+db.micoleccion.insert({"nombre":"Sebastian","apellido":"Ramos","domicilio":"Tabasco"})
+db.micoleccion.insert({"nombre":"Leonardo","apellido":"Ramos","domicilio":"Tabasco"})
+db.micoleccion.insert({"nombre":"Jennifer","apellido":"Jimenez","domicilio":"Tabasco"})
+db.micoleccion.insert({"nombre":"Diana","apellido":"Jimenez","domicilio":"Tabasco"})
+db.micoleccion.insert({"nombre":"Jeremias","apellido":"Escalante","domicilio":"Quintana Roo"})
+```
+Insertar muchos
+```
+db.inventory.insertMany(
+[{ _id: 1, item: { name: "ab", code: "123" }, qty: 15, tags: [ "A", "B", "C" ] },
+{ _id: 2, item: { name: "cd", code: "123" }, qty: 20, tags: [ "B" ] },
+{ _id: 3, item: { name: "ij", code: "456" }, qty: 25, tags: [ "A", "B" ] },
+{ _id: 4, item: { name: "xy", code: "456" }, qty: 30, tags: [ "B", "A" ] },
+{ _id: 5, item: { name: "mn", code: "000" }, qty: 20, tags: [ [ "A", "B" ], "C" ] }]
+)
+```
+### Selects (Muestra todo lo que hay en la colección)
+```
+db.micoleccion.find()
+db.micoleccion.find({"apellido":"Ramos"})
+db.micoleccion.find({"_id":ObjectId("56c9a1ffbb6e73925f958b1a")})
+```
+### Updates (Actualización de registros)
+```
+db.micoleccion.update({"_id":ObjectId("56c9a1ffbb6e73925f958b1a")},{$set:{"apellido":"Ramos Escalante"}})
+```
+
+### Delete (Eliminación de registros)
+```
+db.micoleccion.remove({"_id":ObjectId("56c9a1ffbb6e73925f958b1a")})
+db.micoleccion.remove()
+```
+No es necesario finalizar las consultas con “;” (punto y coma)
+No existe “describe mitabla”: Las colecciones en MongoDB no tienen una “estructura” fijada, por lo que en una colección incluso pueden haber registros que tengan ciertos “campos” y otros no, dicho esto, no se puede hacer una descripción de la colección.
+
+
