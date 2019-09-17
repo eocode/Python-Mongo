@@ -1,6 +1,5 @@
-# Platzi Mongo
-Todo el código que escribirás para el proyecto platzi-mongo
-estará en el archivo db.py
+# Curso de mongo db
+Código del curso db.py
 
 # Postman
 1. Descargar e instalar [Postman](https://www.getpostman.com/downloads/)
@@ -9,9 +8,6 @@ estará en el archivo db.py
 
 ## Instalar Anaconda 
 La forma más simple de ejecutar el proyecto es instalando [Anaconda](https://www.anaconda.com/distribution/).
-
-Con Anaconda instalado de manera correcta, navegar hasta el directorio del proyecto
-y ejecutar: 
 ```
 # navegar hasta el directorio del proyecto
 cd platzi-mongo
@@ -33,6 +29,7 @@ pip install -r requirements.txt
 ## Variables de entorno necesarias para ejecutar el proyecto
 Asegurate de reemplazar el valor de PLATZI_DB_URI por la URI de tu cluster en MongoDB Atlas
 ```
+Windows es con set
 export FLASK_APP=platzi-api
 export FLASK_ENV=development 
 export PLATZI_DB_URI="MONGO-URI"
@@ -42,3 +39,7 @@ export PLATZI_DB_URI="MONGO-URI"
 ```
 flask run
 ```
+
+# Comandos utiles y primeros pasos
+1. Servidor online: [Mongo Atlas](https://www.mongodb.com/es/cloud/atlas)
+2. Descargar mongo: [Mongo Download Center](https://www.mongodb.com/download-center/community)
