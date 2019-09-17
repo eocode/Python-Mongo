@@ -55,3 +55,22 @@ show dbs
 ```
 use nombredb
 ```
+
+### Eliminar una base de datos seleccionada
+```
+db.dropDatabase()
+```
+
+### Mostrar todas las colecciones de la base de datos
+```
+show collections
+db.getCollectionNames()
+```
+
+### Crear una colección (se crea vacia)
+```
+db.createCollection("nombre_coleccion")
+db.coleccion.drop()
+```
+
+## CRUD: Insertar, Mostrar, Actualizar y Eliminar
