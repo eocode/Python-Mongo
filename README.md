@@ -173,3 +173,6 @@ db.cursos.find({$text: {$search:"aws"}}).pretty()
 ## Apuntes teoricos
 1. One to one: Documentos embebidos
 2. One to many: Documentos embebidos cuando la información no va a cambiar muy frecuentemente y referencias cuando si.
+
+## Tratamiento de datos geoespaciales
+[Revisar estas notas de geolocalizacion](http://www.carlos-garcia.es/index.php/tutorial/mongodb_busquedas_ubicacion_geografica)
