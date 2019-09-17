@@ -43,3 +43,15 @@ flask run
 # Comandos utiles y primeros pasos
 1. Servidor online: [Mongo Atlas](https://www.mongodb.com/es/cloud/atlas)
 2. Descargar mongo: [Mongo Download Center](https://www.mongodb.com/download-center/community)
+3. Agregar la variable de entorno
+4. Conectar con la variable de conexión desde https://cloud.mongodb.com
+
+### Mostrar bases de datos
+```
+show dbs
+```
+
+### Crear seleccionar una base de datos
+```
+use nombredb
+```
