@@ -148,3 +148,23 @@ $addToSet
 ```
 
 ## Índices en Mongo
+Tipos de índices:
+1. De un solo campo (Cuando nos interesa un campo)
+2. Compuestos 
+3. Multi-llave
+4. Geoespaciales (Querys con Latitud y longitud, por geoposicionamiento)
+5. De texto (Busque da de texto)
+6. Hashed (Convertir valores en hash)
+### Ver los índices
+```
+db.cursos.getIndexes()
+```
+### Crear índices
+```
+db.cursos.createIndex({"nombre": "text"})
+```
+### Hacer consultas
+```
+db.cursos.find({$text: {$search:"aws"}}, {nombre: 1})
+db.cursos.find({$text: {$search:"aws"}})
+```
