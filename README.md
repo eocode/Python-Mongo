@@ -49,6 +49,7 @@ flask run
 ### Documentación
 1. [PyMongo](https://api.mongodb.com/python/current/)
 2. [Operadores mongo](https://docs.mongodb.com/manual/reference/operator/)
+3. [Agregaciones](https://docs.mongodb.com/manual/aggregation/)
 
 ### Mostrar bases de datos
 ```
@@ -117,4 +118,33 @@ db.micoleccion.remove()
 No es necesario finalizar las consultas con “;” (punto y coma)
 No existe “describe mitabla”: Las colecciones en MongoDB no tienen una “estructura” fijada, por lo que en una colección incluso pueden haber registros que tengan ciertos “campos” y otros no, dicho esto, no se puede hacer una descripción de la colección.
 
+### Otros códigos
+```
+// $or
+db.inventory.find({$or: [{qty: {$gt: 25}}, {qty: {$lte: 15}}]})
 
+// $gte
+db.inventory.find({qty: {$gte: 25}})
+
+// $size
+db.inventory.find({tags: {$size: 2}})
+
+db.survey.insertMany([
+{ _id: 1, results: [ { product: "abc", score: 10 }, { product: "xyz", score: 5 } ] }
+{ _id: 2, results: [ { product: "abc", score: 8 }, { product: "xyz", score: 7 } ] }
+{ _id: 3, results: [ { product: "abc", score: 7 }, { product: "xyz", score: 8 } ] }
+])
+
+db.survey.find(
+   { results: { $elemMatch: { product: "xyz", score: { $gte: 8 } } } }
+)
+db.survey.find(
+   { results: { $elemMatch: { product: "xyz" } } }```
+```
+
+### Operadores comunes
+```
+$addToSet
+```
+
+## Índices en Mongo
